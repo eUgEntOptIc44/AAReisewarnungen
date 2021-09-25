@@ -68,7 +68,10 @@ class UserDetailsPage extends StatelessWidget {
                     heightFactor: 0.50,
                     child: Container(
                     padding: const EdgeInsets.all(5),
-                    height:MediaQuery.of(context).size.height/25,
+                    constraints: BoxConstraints( 
+                      maxHeight:MediaQuery.of(context).size.height * 0.25,
+                      maxWidth: MediaQuery.of(context).size.width,
+                    ),
                     /*decoration: BoxDecoration(
                       color: Colors.transparent,
                       border: Border.all(
@@ -118,7 +121,10 @@ class UserDetailsPage extends StatelessWidget {
                   heightFactor: 0.50,
                   child: Container(
                     padding: const EdgeInsets.all(5),
-                    height:MediaQuery.of(context).size.height/20,
+                    constraints: BoxConstraints( 
+                      maxHeight:MediaQuery.of(context).size.height * 0.20,
+                      maxWidth:400,
+                    ),
                     /*decoration: BoxDecoration(
                       color: Colors.transparent,
                       border: Border.all(
@@ -211,9 +217,9 @@ class UserDetailsPage extends StatelessWidget {
                 ),
               ]),
             ),
-            const SliverFillRemaining({
-                this.hasScrollBody = false,
-                child: Align(
+            SliverList(
+              delegate: SliverChildListDelegate([
+                Align(
                   alignment: Alignment.topLeft,
                   child: Container(
                     padding: const EdgeInsets.all(5),
@@ -238,7 +244,7 @@ class UserDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              }),
+              ]),
             ),
           ],
         ),
