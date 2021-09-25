@@ -65,6 +65,7 @@ class UserDetailsPage extends StatelessWidget {
               delegate: SliverChildListDelegate([
                 Align(
                     alignment: Alignment.topLeft,
+                    heightFactor: 0.50,
                     child: Container(
                     padding: const EdgeInsets.all(5),
                     height:MediaQuery.of(context).size.height/2,
@@ -114,6 +115,7 @@ class UserDetailsPage extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.topLeft,
+                  heightFactor: 0.50,
                   child: Container(
                     padding: const EdgeInsets.all(5),
                     height:MediaQuery.of(context).size.height/2,
