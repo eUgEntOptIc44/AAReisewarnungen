@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
             builder: (BuildContext context) {
               return WillPopScope(
                 child: ColorPickerDialog(
-                  defaultColor: kFuchsia,
+                  defaultColor: kDarkBlue,
                   defaultIsDark: false,
                   title: 'Farbe wählen',
                   cancelButtonText: 'Abbrechen',
