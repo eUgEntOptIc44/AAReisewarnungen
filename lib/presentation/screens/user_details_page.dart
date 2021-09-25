@@ -64,7 +64,10 @@ class UserDetailsPage extends StatelessWidget {
                 children: [
                 Container(
                     padding: const EdgeInsets.all(5),
-                    child: Center(
+                    child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                    Center(
                       child: Hero(
                         tag: user.id,
                         child: ClipRRect(
@@ -97,10 +100,14 @@ class UserDetailsPage extends StatelessWidget {
                     SizedBox(
                       height: 12.0,
                     ),
+                  ]),
                 ),
                 Container(
                   padding: const EdgeInsets.all(5),
-                  child: Padding(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                    Padding(
                       padding: EdgeInsets.all(7.0),
                       child: StepProgressIndicator(
                         totalSteps: 3,
@@ -179,6 +186,7 @@ class UserDetailsPage extends StatelessWidget {
                         ]),
                       ),
                     ),
+                  ]),
                 ),
               ]),
               SizedBox(
