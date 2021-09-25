@@ -1,0 +1,59 @@
+name: aareisewarnungen
+description: Reise- und Sicherheitshinweise des Auswärtigen Amts (AA) als inoffizielle Open Source App.
+
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.3
+
+  #http service
+  http: ^0.13.3
+
+  #emails send
+  url_launcher: ^6.0.9
+
+  #animation lottie file
+  lottie: ^1.1.0
+
+  flutter_widget_from_html: ^0.7.0
+
+  logger: ^1.1.0
+  flutter_logger: ^0.0.6
+  flutter_easylogger: ^2.3.3
+
+  #flutter_flipperkit: ^0.0.27
+  timeago: ^3.1.0
+
+  # breaks other dependencies due to null safety
+  #flutter_icons: ^1.1.0
+
+  # for date formatting
+  intl: ^0.17.0
+
+  step_progress_indicator: ^1.0.1
+
+  dynamic_color_theme: ^2.0.0
+
+  # to replace umlauts while searching
+  diacritic: ^0.1.3
+
+  #path_provider: ^2.0.5
+
+  #dio: ^4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
