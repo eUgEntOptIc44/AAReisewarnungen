@@ -38,7 +38,7 @@ dependencies:
 
   step_progress_indicator: ^1.0.1
 
-  flutter_colorpicker: 0.5.0
+  flutter_colorpicker: ^0.5.0
 
   dynamic_color_theme: ^2.0.0
 
