@@ -17,6 +17,8 @@ ports:
 vscode:
   extensions:
     - dart-code.dart-code@3.20.1
-    - dart-code.flutter@3.20.0
-    - jeroen-meijer.pubspec-assist@v2.3.0
+    - dart-code.flutter@3.26.0
+    #- jeroen-meijer.pubspec-assist@v2.3.0
+    - eamodio.gitlens
+    - github.vscode-pull-request-github
 
