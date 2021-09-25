@@ -68,14 +68,14 @@ class UserDetailsPage extends StatelessWidget {
                     heightFactor: 0.50,
                     child: Container(
                     padding: const EdgeInsets.all(5),
-                    height:MediaQuery.of(context).size.height/2,
-                    decoration: BoxDecoration(
+                    height:MediaQuery.of(context).size.height/25,
+                    /*decoration: BoxDecoration(
                       color: Colors.transparent,
                       border: Border.all(
                         width: 2,
                         color: Colors.blue
                       )
-                    ),
+                    ),*/
                     child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                       Center(
                         child: Hero(
@@ -118,14 +118,14 @@ class UserDetailsPage extends StatelessWidget {
                   heightFactor: 0.50,
                   child: Container(
                     padding: const EdgeInsets.all(5),
-                    height:MediaQuery.of(context).size.height/2,
-                    decoration: BoxDecoration(
+                    height:MediaQuery.of(context).size.height/20,
+                    /*decoration: BoxDecoration(
                       color: Colors.transparent,
                       border: Border.all(
                         width: 2,
                         color: Colors.blue
                       )
-                    ),
+                    ),*/
                     child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                       Padding(
                         padding: EdgeInsets.all(7.0),
