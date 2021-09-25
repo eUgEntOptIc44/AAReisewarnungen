@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_responsive_onboarding/utils/utils.dart';
 import 'package:intl/intl.dart';
 import 'package:aareisewarnungen/data/country_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:timeago/timeago.dart' as timeago;
-//import 'package:flutter_icons/flutter_icons.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 int UserWarningLevel(User user) {
@@ -59,6 +59,10 @@ class UserDetailsPage extends StatelessWidget {
               SizedBox(
                 height: 16.0,
               ),
+              GridView.count(
+              crossAxisCount: Utils.getDeviceType() == 'phone' ? 1 : 2,
+              children: [
+                Container(
               Center(
                 child: Hero(
                   tag: user.id,
@@ -92,6 +96,8 @@ class UserDetailsPage extends StatelessWidget {
               SizedBox(
                 height: 12.0,
               ),
+    ),
+    Container(
               Padding(
                 padding: EdgeInsets.all(7.0),
                 child: StepProgressIndicator(
@@ -138,7 +144,7 @@ class UserDetailsPage extends StatelessWidget {
                       semanticLabel: 'Letzte Änderung',
                     ),
                     Tooltip(
-                      message: "letzte Änderung: " + DateFormat('dd.MM.yyyy H:m').format(DateTime.fromMillisecondsSinceEpoch(user.lastModified * 1000)),
+                      message: "letzte Änderung: " + DateFormat('dd.MM.yyyy Hm').format(DateTime.fromMillisecondsSinceEpoch(user.lastModified * 1000)),
                       child: Text(
                         " " + timeago.format(DateTime.fromMillisecondsSinceEpoch(user.lastModified * 1000), locale: 'de'), // source: https://stackoverflow.com/a/50632411 - users: Mahesh Jamdade & Alex Haslam - License: CC BY-SA 4.0
                         style: TextStyle(
@@ -158,7 +164,7 @@ class UserDetailsPage extends StatelessWidget {
                       semanticLabel: 'effective',
                     ),
                     Tooltip(
-                      message: "effective -> " + DateFormat('dd.MM.yyyy H:m').format(DateTime.fromMillisecondsSinceEpoch(user.effective * 1000)),
+                      message: "effective -> " + DateFormat('dd.MM.yyyy Hm').format(DateTime.fromMillisecondsSinceEpoch(user.effective * 1000)),
                       child: Text(
                         " " + timeago.format(DateTime.fromMillisecondsSinceEpoch(user.effective * 1000), locale: 'de'), // source: https://stackoverflow.com/a/50632411 - users: Mahesh Jamdade & Alex Haslam - License: CC BY-SA 4.0
                         style: TextStyle(
@@ -171,6 +177,9 @@ class UserDetailsPage extends StatelessWidget {
                   ]),
                 ),
               ),
+    ),
+  ]),
+
               SizedBox(
                 height: 12.0,
               ),
