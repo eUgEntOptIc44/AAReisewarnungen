@@ -67,6 +67,7 @@ class UserDetailsPage extends StatelessWidget {
                     alignment: Alignment.topLeft,
                     child: Container(
                     padding: const EdgeInsets.all(5),
+                    height:MediaQuery.of(context).size.height/2,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       border: Border.all(
@@ -115,6 +116,7 @@ class UserDetailsPage extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   child: Container(
                     padding: const EdgeInsets.all(5),
+                    height:MediaQuery.of(context).size.height/2,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                       border: Border.all(
