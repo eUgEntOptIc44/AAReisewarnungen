@@ -51,23 +51,26 @@ class UserDetailsPage extends StatelessWidget {
         title: Text(user.title),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
+        child: CustomScrollView(
+      slivers: <Widget>[
+          SliverList(
+            delegate: SliverChildListDelegate(
+            [
               SizedBox(
                 height: 16.0,
               ),
-              GridView.count(
-                crossAxisCount: Utils.getDeviceType() == 'phone' ? 1 : 2,
+            ]),
+          ),
+          SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: Utils.getDeviceType() == 'phone' ? 1 : 2),
+            delegate: SliverChildListDelegate(
+            [
+              Container(
+                padding: const EdgeInsets.all(5),
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                Container(
-                    padding: const EdgeInsets.all(5),
-                    child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                    Center(
+                Center(
                       child: Hero(
                         tag: user.id,
                         child: ClipRRect(
@@ -101,10 +104,10 @@ class UserDetailsPage extends StatelessWidget {
                       height: 12.0,
                     ),
                   ]),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(5),
-                  child: Column(
+              ),
+              Container(
+                padding: const EdgeInsets.all(5),
+                child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                     Padding(
@@ -189,6 +192,10 @@ class UserDetailsPage extends StatelessWidget {
                   ]),
                 ),
               ]),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+            [
               SizedBox(
                 height: 12.0,
               ),
@@ -201,7 +208,8 @@ class UserDetailsPage extends StatelessWidget {
                   webView: false,
                 ),
               ),
-            ],
+            ]),
+          ),
           ),
         ),
       ),

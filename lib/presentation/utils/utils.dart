@@ -7,3 +7,5 @@ class Utils {
     return data.size.shortestSide < 550 ? 'phone' : 'tablet';
   }
 }
+
+// Utils.getDeviceType() == 'phone' ? 1 : 2,
