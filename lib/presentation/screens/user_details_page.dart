@@ -52,25 +52,21 @@ class UserDetailsPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: CustomScrollView(
-      slivers: <Widget>[
-          SliverList(
-            delegate: SliverChildListDelegate(
-            [
-              SizedBox(
-                height: 16.0,
-              ),
-            ]),
-          ),
-          SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: Utils.getDeviceType() == 'phone' ? 1 : 2),
-            delegate: SliverChildListDelegate(
-            [
-              Container(
-                padding: const EdgeInsets.all(5),
-                child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                Center(
+          slivers: <Widget>[
+            SliverList(
+              delegate: SliverChildListDelegate([
+                SizedBox(
+                  height: 16.0,
+                ),
+              ]),
+            ),
+            SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: Utils.getDeviceType() == 'phone' ? 1 : 2),
+              delegate: SliverChildListDelegate([
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+                    Center(
                       child: Hero(
                         tag: user.id,
                         child: ClipRRect(
@@ -104,12 +100,10 @@ class UserDetailsPage extends StatelessWidget {
                       height: 12.0,
                     ),
                   ]),
-              ),
-              Container(
-                padding: const EdgeInsets.all(5),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                ),
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                     Padding(
                       padding: EdgeInsets.all(7.0),
                       child: StepProgressIndicator(
@@ -192,25 +186,24 @@ class UserDetailsPage extends StatelessWidget {
                   ]),
                 ),
               ]),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-            [
-              SizedBox(
-                height: 12.0,
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: HtmlWidget(
-                  user.content,
-                  onErrorBuilder: (context, element, error) => Text('$element error: $error'),
-                  onLoadingBuilder: (context, element, loadingProgress) => CircularProgressIndicator(),
-                  webView: false,
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                SizedBox(
+                  height: 12.0,
                 ),
-              ),
-            ]),
-          ),
-          ),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: HtmlWidget(
+                    user.content,
+                    onErrorBuilder: (context, element, error) => Text('$element error: $error'),
+                    onLoadingBuilder: (context, element, loadingProgress) => CircularProgressIndicator(),
+                    webView: false,
+                  ),
+                ),
+              ]),
+            ),
+          ],
         ),
       ),
     );
