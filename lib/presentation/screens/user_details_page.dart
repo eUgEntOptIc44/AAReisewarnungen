@@ -63,7 +63,8 @@ class UserDetailsPage extends StatelessWidget {
                 crossAxisCount: Utils.getDeviceType() == 'phone' ? 1 : 2,
                 children: [
                 Container(
-                    Center(
+                    padding: const EdgeInsets.all(5),
+                    child: Center(
                       child: Hero(
                         tag: user.id,
                         child: ClipRRect(
@@ -98,7 +99,8 @@ class UserDetailsPage extends StatelessWidget {
                     ),
                 ),
                 Container(
-                    Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: Padding(
                       padding: EdgeInsets.all(7.0),
                       child: StepProgressIndicator(
                         totalSteps: 3,
