@@ -211,9 +211,9 @@ class UserDetailsPage extends StatelessWidget {
                 ),
               ]),
             ),
-            SliverList(
-              delegate: SliverChildListDelegate([
-                Align(
+            const SliverFillRemaining({
+                this.hasScrollBody = false,
+                child: Align(
                   alignment: Alignment.topLeft,
                   child: Container(
                     padding: const EdgeInsets.all(5),
@@ -238,7 +238,7 @@ class UserDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              ]),
+              }),
             ),
           ],
         ),
