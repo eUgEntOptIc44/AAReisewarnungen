@@ -30,7 +30,8 @@ class UserDetailsPage extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Container(
+          child: Center(
+            child: Container(
             constraints: BoxConstraints(maxWidth: 900),
             color: Colors.transparent,
             child: Column(
@@ -45,7 +46,7 @@ class UserDetailsPage extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(6.0)),
                       child: Container(
-                        constraints: BoxConstraints(maxHeight: Utils.getDeviceType() == 'phone' ? 200 : 230, maxWidth: Utils.getDeviceType() == 'phone' ? 300 : 330),
+                        constraints: BoxConstraints(maxHeight: Utils.getDeviceType() == 'phone' ? 140 : 230, maxWidth: Utils.getDeviceType() == 'phone' ? 200 : 330),
                         child: Image.network(user.flagUrl, fit: BoxFit.cover),
                         /*Align(
                           alignment: Alignment.center,
@@ -58,7 +59,7 @@ class UserDetailsPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 19.0,
+                  height: Utils.getDeviceType() == 'phone' ? 16.0 : 19.0,
                 ),
                 Padding(
                   padding: EdgeInsets.all(7.0),
@@ -81,8 +82,8 @@ class UserDetailsPage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(4.0),
                         child: Container(
-                          constraints: BoxConstraints(minHeight: 20, minWidth: 40, maxHeight: 30, maxWidth: 50),
-                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6))),
+                          constraints: BoxConstraints(minHeight: 25, minWidth: 45, maxHeight: 35, maxWidth: 55),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(9))),
                           color: user.warning == true ? Colors.orange : Colors.lightGreen,
                           child: Tooltip(
                             message: "Warnung",
@@ -96,8 +97,8 @@ class UserDetailsPage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(4.0),
                         child: Container(
-                          constraints: BoxConstraints(minHeight: 20, minWidth: 40, maxHeight: 30, maxWidth: 50),
-                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6))),
+                          constraints: BoxConstraints(minHeight: 25, minWidth: 45, maxHeight: 35, maxWidth: 55),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(9))),
                           color: user.partialWarning == true ? Colors.orange : Colors.lightGreen,
                           child: Tooltip(
                             message: "eingeschränkte Warnung",
@@ -111,8 +112,8 @@ class UserDetailsPage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(4.0),
                         child: Container(
-                          constraints: BoxConstraints(minHeight: 20, minWidth: 40, maxHeight: 30, maxWidth: 50),
-                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6))),
+                          constraints: BoxConstraints(minHeight: 25, minWidth: 45, maxHeight: 35, maxWidth: 55),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(9))),
                           color: user.situationWarning == true ? Colors.orange : Colors.lightGreen,
                           child: Tooltip(
                             message: "situationsbedingte Warnung",
@@ -126,8 +127,8 @@ class UserDetailsPage extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.all(4.0),
                         child: Container(
-                          constraints: BoxConstraints(minHeight: 20, minWidth: 40, maxHeight: 30, maxWidth: 50),
-                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(6))),
+                          constraints: BoxConstraints(minHeight: 25, minWidth: 45, maxHeight: 35, maxWidth: 55),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(9))),
                           color: user.situationPartWarning == true ? Colors.orange : Colors.lightGreen,
                           child: Tooltip(
                             message: "eingeschränkte situationsbedingte Warnung",
@@ -193,7 +194,7 @@ class UserDetailsPage extends StatelessWidget {
                   height: 10.0,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(10.0),
                   child: HtmlWidget(
                     user.content,
                     onErrorBuilder: (context, element, error) => Text('$element error: $error'),
@@ -204,6 +205,7 @@ class UserDetailsPage extends StatelessWidget {
               ],
             ),
           ),
+        ),
         ),
       ),
     );
