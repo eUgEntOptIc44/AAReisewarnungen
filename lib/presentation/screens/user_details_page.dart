@@ -41,6 +41,10 @@ class UserDetailsPage extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(6.0)),
                     child: Container(
+                      constraints: BoxConstraints(
+                        maxHeight: 200,
+                        maxWidth: 300
+                      ),
                       child: Align(
                         alignment: Alignment.center,
                         widthFactor: 0.50,
@@ -52,7 +56,7 @@ class UserDetailsPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 22.0,
+                height: 19.0,
               ),
               Padding(
                 padding: EdgeInsets.all(7.0),
@@ -68,53 +72,83 @@ class UserDetailsPage extends StatelessWidget {
               SizedBox(
                 height: 12.0,
               ),
-              Padding(
-                padding: EdgeInsets.all(7.0),
-                child: Row(children: [
-                  Container(
-                    color: user.warning == true ? Colors.orange : Colors.lightGreen,
-                    child: Tooltip(
-                      message: "Warnung",
-                      child: Icon(
-                        user.warning == true ? Icons.warning : Icons.remove,
-                        color: Colors.black,
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.all(7.0),
+                  child: Row(children: [
+                    Padding(
+                      padding: EdgeInsets.all(2.0),
+                      child: Container(
+                        constraints: BoxConstraints(minHeight: 10, minWidth: 15, maxHeight: 20, maxWidth: 20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(6))
+                        ),
+                        color: user.warning == true ? Colors.orange : Colors.lightGreen,
+                        child: Tooltip(
+                          message: "Warnung",
+                          child: Icon(
+                            user.warning == true ? Icons.warning : Icons.remove,
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: user.partialWarning == true ? Colors.orange : Colors.lightGreen,
-                    child: Tooltip(
-                      message: "eingeschränkte Warnung",
-                      child: Icon(
-                        user.warning == true ? Icons.warning : Icons.remove,
-                        color: Colors.black,
+                    Padding(
+                      padding: EdgeInsets.all(2.0),
+                      child: Container(
+                        constraints: BoxConstraints(minHeight: 10, minWidth: 15, maxHeight: 20, maxWidth: 20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(6))
+                        ),
+                        color: user.partialWarning == true ? Colors.orange : Colors.lightGreen,
+                        child: Tooltip(
+                          message: "eingeschränkte Warnung",
+                          child: Icon(
+                            user.partialWarning == true ? Icons.warning : Icons.remove,
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: user.situationWarning == true ? Colors.orange : Colors.lightGreen,
-                    child: Tooltip(
-                      message: "situationsbedingte Warnung",
-                      child: Icon(
-                        user.warning == true ? Icons.warning : Icons.remove,
-                        color: Colors.black,
+                    Padding(
+                      padding: EdgeInsets.all(2.0),
+                      child: Container(
+                        constraints: BoxConstraints(minHeight: 10, minWidth: 15, maxHeight: 20, maxWidth: 20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(6))
+                        ),
+                        color: user.situationWarning == true ? Colors.orange : Colors.lightGreen,
+                        child: Tooltip(
+                          message: "situationsbedingte Warnung",
+                          child: Icon(
+                            user.situationWarning == true ? Icons.warning : Icons.remove,
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    color: user.situationPartWarning == true ? Colors.orange : Colors.lightGreen,
-                    child: Tooltip(
-                      message: "eingeschränkte situationsbedingte Warnung",
-                      child: Icon(
-                        user.warning == true ? Icons.warning : Icons.remove,
-                        color: Colors.black,
+                    Padding(
+                      padding: EdgeInsets.all(2.0),
+                      child: Container(
+                        constraints: BoxConstraints(minHeight: 10, minWidth: 15, maxHeight: 20, maxWidth: 20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(6))
+                        ),
+                        color: user.situationPartWarning == true ? Colors.orange : Colors.lightGreen,
+                        child: Tooltip(
+                          message: "eingeschränkte situationsbedingte Warnung",
+                          child: Icon(
+                            user.situationPartWarning == true ? Icons.warning : Icons.remove,
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ]),
+                  ]),
+                ),
               ),
               SizedBox(
-                height: 12.0,
+                height: 10.0,
               ),
               Align(
                 alignment: Alignment.center,
@@ -162,7 +196,7 @@ class UserDetailsPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 12.0,
+                height: 10.0,
               ),
               Padding(
                 padding: EdgeInsets.all(8.0),
