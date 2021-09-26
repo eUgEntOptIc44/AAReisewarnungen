@@ -42,6 +42,7 @@ List<User> parseUser(String responseBody) {
         list[contentListId]["warning"],
         list[contentListId]["partialWarning"],
         list[contentListId]["situationWarning"],
+        list[contentListId]["situationPartWarning"],
         list[contentListId]["lastChanges"].replaceAllMapped(RegExp(r'<[^>]+>'), (match) {
           // docs: https://api.dart.dev/stable/1.20.1/dart-core/String/replaceAllMapped.html
           return '';

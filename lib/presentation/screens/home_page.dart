@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:aareisewarnungen/data/country_model.dart';
 import 'package:aareisewarnungen/main.dart';
-import 'package:aareisewarnungen/domain/repository.dart';
+import 'package:aareisewarnungen/domain/country_api.dart';
 import 'package:aareisewarnungen/presentation/components/loading_widget.dart';
 import 'package:aareisewarnungen/presentation/components/user_tile.dart';
 import 'package:aareisewarnungen/presentation/screens/healthcare_page.dart';
@@ -52,8 +52,7 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: Drawer(
         child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
+          padding: EdgeInsets.zero, // Remove any padding from the ListView.
           children: [
             const DrawerHeader(
               /*decoration: BoxDecoration(
@@ -111,7 +110,7 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('dark mode'),
+              title: const Text('Dark mode umschalten'),
               onTap: () {
                 DynamicColorTheme.of(context).setIsDark(
                   isDark: !isDark,

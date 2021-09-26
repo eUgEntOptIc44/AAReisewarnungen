@@ -7,10 +7,11 @@ class User {
   bool warning = false;
   bool partialWarning = false;
   bool situationWarning = false;
+  bool situationPartWarning = false;
   String lastChanges = "";
   String content = "";
 
-  User(this.id, this.lastModified, this.effective, this.flagUrl, this.title, this.warning, this.partialWarning, this.situationWarning, this.lastChanges, this.content);
+  User(this.id, this.lastModified, this.effective, this.flagUrl, this.title, this.warning, this.partialWarning, this.situationWarning, this.situationPartWarning, this.lastChanges, this.content);
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -21,6 +22,7 @@ class User {
     warning = json['warning'];
     partialWarning = json['partialWarning'];
     situationWarning = json['situationWarning'];
+    situationPartWarning = json['situationPartWarning'];
     lastChanges = json['lastChanges'];
     content = json['content'];
   }
@@ -35,6 +37,7 @@ class User {
     data['warning'] = this.warning;
     data['partialWarning'] = this.partialWarning;
     data['situationWarning'] = this.situationWarning;
+    data['situationPartWarning'] = this.situationPartWarning;
     data['lastChanges'] = this.lastChanges;
     data['content'] = this.content;
     return data;
@@ -50,7 +53,8 @@ class User {
 
     /*bool warning
     bool partialWarning
-    bool situationWarning */
+    bool situationWarning
+    bool situationPartWarning */
     if (this.warning == true) {
       data['warning'] = 1;
     } else {
@@ -65,6 +69,11 @@ class User {
       data['situationWarning'] = 1;
     } else {
       data['situationWarning'] = 0;
+    }
+    if (this.situationPartWarning == true) {
+      data['situationPartWarning'] = 1;
+    } else {
+      data['situationPartWarning'] = 0;
     }
 
     data['lastChanges'] = this.lastChanges;
@@ -81,7 +90,8 @@ class User {
 
     /*bool warning
     bool partialWarning
-    bool situationWarning */
+    bool situationWarning
+    bool situationPartWarning */
     if (json['warning'] == 1) {
       this.warning = true;
     } else {
@@ -96,6 +106,11 @@ class User {
       this.situationWarning = true;
     } else {
       this.situationWarning = false;
+    }
+    if (json['situationPartWarning'] == 1) {
+      this.situationPartWarning = true;
+    } else {
+      this.situationPartWarning = false;
     }
 
     lastChanges = json['lastChanges'];
