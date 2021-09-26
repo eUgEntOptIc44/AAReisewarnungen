@@ -38,13 +38,13 @@ List<Healthcare> parseHealthcare(List<int> responseBody) {
         print(keyTemp);
         print(list[contentListId][keyTemp].runtimeType); // to debug data types
       }*/
-    Healthcare userTemp = new Healthcare(list[contentListId]["id"], list[contentListId]["lastModified"], list[contentListId]["name"], list[contentListId]["url"]);
-    healthcareItems.add(userTemp);
+    Healthcare healthcareTemp = new Healthcare(list[contentListId]["id"], list[contentListId]["lastModified"], list[contentListId]["name"], list[contentListId]["url"]);
+    healthcareItems.add(healthcareTemp);
     Logger.d("added healthcare #" + contentListId + "\n");
-    //createCountry(userTemp);
+    //createCountry(healthcareTemp);
 
     /*handler.initializeDB().whenComplete(() async {
-        await addHealthcares(users);
+        await addHealthcares(healthcareItems);
       });*/
 
     //Logger.d("inserted healthcare #" + contentListId + " into db \n");

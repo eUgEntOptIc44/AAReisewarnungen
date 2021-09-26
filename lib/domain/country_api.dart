@@ -13,17 +13,17 @@ final String url = "https://www.auswaertiges-amt.de/opendata/travelwarning";
 
 /*var handler = DatabaseHandler();
 
-Future<int> addUsers(List<User> listOfUsers) async {
-  return await handler.insertUser(listOfUsers);
+Future<int> addCountries(List<Country> listOfCountries) async {
+  return await handler.insertCountry(listOfCountries);
 }*/
 
-List<User> parseUser(String responseBody) {
+List<Country> parseCountry(String responseBody) {
   Logger.d("about to decode countries json string");
   var list = json.decode(responseBody)["response"];
 
   Logger.d(list.keys);
 
-  List<User> users = [];
+  List<Country> countries = [];
 
   for (final contentListId in list["contentList"]) {
     list[contentListId]["id"] = int.parse(contentListId);
@@ -33,7 +33,7 @@ List<User> parseUser(String responseBody) {
       print(keyTemp);
       print(list[contentListId][keyTemp].runtimeType); // to debug data types
     }*/
-    User userTemp = new User(
+    Country countryTemp = new Country(
         int.parse(contentListId),
         list[contentListId]["lastModified"],
         list[contentListId]["effective"],
@@ -48,29 +48,29 @@ List<User> parseUser(String responseBody) {
           return '';
         }),
         list[contentListId]["content"]);
-    users.add(userTemp);
+    countries.add(countryTemp);
     Logger.d("added country #" + contentListId + "\n");
-    //createCountry(userTemp);
+    //createCountry(countryTemp);
 
     /*handler.initializeDB().whenComplete(() async {
-      await addUsers(users);
+      await addCountries(countries);
     });*/
 
     //Logger.d("inserted country #" + contentListId + " into db \n");
   }
 
-  Logger.d("returning " + users.length.toString() + " countries ");
-  //print(users);
+  Logger.d("returning " + countries.length.toString() + " countries ");
+  //print(countries);
 
-  return users;
+  return countries;
 }
 
-Future<List<User>> fetchUsers() async {
+Future<List<Country>> fetchCountries() async {
   final http.Response response = await http.get(Uri.parse(url));
 
   if (response.statusCode == 200) {
     Logger.d("travelwarning api request responseCode is 200");
-    return compute(parseUser, response.body);
+    return compute(parseCountry, response.body);
   } else {
     Logger.e("travelwarning json request failed -> responseCode: " + response.statusCode.toString());
     throw Exception(response.statusCode);

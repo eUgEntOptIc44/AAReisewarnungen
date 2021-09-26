@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:aareisewarnungen/data/country_model.dart';
-import 'package:aareisewarnungen/presentation/screens/user_details_page.dart';
+import 'package:aareisewarnungen/presentation/screens/country_details_page.dart';
 
-class UserTile extends StatelessWidget {
-  final User user;
+class CountryTile extends StatelessWidget {
+  final Country country;
 
-  UserTile({required this.user});
+  CountryTile({required this.country});
 
   /*
-  String userTitle() {
+  String countryTitle() {
     String title = "";
-    if (user.title == "Male") {
+    if (country.title == "Male") {
       title = "Mr.";
-    } else if (user.title == "Female") {
+    } else if (country.title == "Female") {
       title = "Ms.";
     }
     return title;
@@ -26,15 +26,15 @@ class UserTile extends StatelessWidget {
         children: [
           ListTile(
             leading: Hero(
-              tag: user.id,
+              tag: country.id,
               child: CircleAvatar(
-                backgroundImage: NetworkImage(user.flagUrl),
+                backgroundImage: NetworkImage(country.flagUrl),
               ),
             ),
-            title: Text('${user.title}'),
-            subtitle: Text('${user.lastChanges}'),
+            title: Text('${country.title}'),
+            subtitle: Text('${country.lastChanges}'),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => UserDetailsPage(user: user)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CountryDetailsPage(country: country)));
             },
           ),
           Divider(

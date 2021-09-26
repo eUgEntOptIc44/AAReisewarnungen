@@ -1,4 +1,4 @@
-class User {
+class Country {
   int id = 0;
   int lastModified = 0;
   int effective = 0;
@@ -11,9 +11,9 @@ class User {
   String lastChanges = "";
   String content = "";
 
-  User(this.id, this.lastModified, this.effective, this.flagUrl, this.title, this.warning, this.partialWarning, this.situationWarning, this.situationPartWarning, this.lastChanges, this.content);
+  Country(this.id, this.lastModified, this.effective, this.flagUrl, this.title, this.warning, this.partialWarning, this.situationWarning, this.situationPartWarning, this.lastChanges, this.content);
 
-  User.fromJson(Map<String, dynamic> json) {
+  Country.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     lastModified = json['lastModified'];
     effective = json['effective'];
@@ -81,7 +81,7 @@ class User {
     return data;
   }
 
-  User.fromMap(Map<String, dynamic> json) {
+  Country.fromMap(Map<String, dynamic> json) {
     id = json['id'];
     lastModified = json['lastModified'];
     effective = json['effective'];

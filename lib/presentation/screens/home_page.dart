@@ -5,7 +5,7 @@ import 'package:aareisewarnungen/data/country_model.dart';
 import 'package:aareisewarnungen/main.dart';
 import 'package:aareisewarnungen/domain/country_api.dart';
 import 'package:aareisewarnungen/presentation/components/loading_widget.dart';
-import 'package:aareisewarnungen/presentation/components/user_tile.dart';
+import 'package:aareisewarnungen/presentation/components/country_tile.dart';
 import 'package:aareisewarnungen/presentation/screens/healthcare_page.dart';
 
 import 'package:flutter_easylogger/console_overlay.dart';
@@ -22,20 +22,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<User> _users = <User>[];
-  List<User> _usersDisplay = <User>[];
+  List<Country> _countries = <Country>[];
+  List<Country> _countriesDisplay = <Country>[];
 
   bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    fetchUsers().then((value) {
+    fetchCountries().then((value) {
       setState(() {
         _isLoading = false;
-        Logger.d("adding users to listview ...");
-        _users.addAll(value);
-        _usersDisplay = _users;
+        Logger.d("adding countries to listview ...");
+        _countries.addAll(value);
+        _countriesDisplay = _countries;
         Logger.d("showing " + value.length.toString() + " list items ");
       });
     });
@@ -126,12 +126,12 @@ class _HomePageState extends State<HomePage> {
           child: ListView.builder(
             itemBuilder: (context, index) {
               if (!_isLoading) {
-                return index == 0 ? _searchBar() : UserTile(user: this._usersDisplay[index - 1]);
+                return index == 0 ? _searchBar() : CountryTile(country: this._countriesDisplay[index - 1]);
               } else {
                 return LoadingView();
               }
             },
-            itemCount: _usersDisplay.length + 1,
+            itemCount: _countriesDisplay.length + 1,
           ),
         ),
       ),
@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
         onChanged: (searchText) {
           searchText = removeDiacritics(searchText.toLowerCase());
           setState(() {
-            _usersDisplay = _users.where((u) {
+            _countriesDisplay = _countries.where((u) {
               var countryTitle = removeDiacritics(u.title.toLowerCase());
               var countryLastChanges = removeDiacritics(u.lastChanges.toLowerCase());
               //var countryContent = removeDiacritics(u.content.toLowerCase()); // removed due to memory consumption -> TODO: if possible replace with faster method

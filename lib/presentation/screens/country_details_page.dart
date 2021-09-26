@@ -8,10 +8,10 @@ import 'package:timeago/timeago.dart' as timeago;
 //import 'package:flutter_icons/flutter_icons.dart';
 //import 'package:step_progress_indicator/step_progress_indicator.dart';
 
-class UserDetailsPage extends StatelessWidget {
-  final User user;
+class CountryDetailsPage extends StatelessWidget {
+  final Country country;
 
-  UserDetailsPage({required this.user});
+  CountryDetailsPage({required this.country});
 
   /*void customLaunch(command) async {
     if (await canLaunch(command)) {
@@ -25,7 +25,7 @@ class UserDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(user.title),
+        title: Text(country.title),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -42,17 +42,17 @@ class UserDetailsPage extends StatelessWidget {
                 ),
                 Center(
                   child: Hero(
-                    tag: user.id,
+                    tag: country.id,
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(6.0)),
                       child: Container(
                         constraints: BoxConstraints(maxHeight: Utils.getDeviceType() == 'phone' ? 140 : 230, maxWidth: Utils.getDeviceType() == 'phone' ? 200 : 330),
-                        child: Image.network(user.flagUrl, fit: BoxFit.cover),
+                        child: Image.network(country.flagUrl, fit: BoxFit.cover),
                         /*Align(
                           alignment: Alignment.center,
                           widthFactor: 0.50,
                           heightFactor: 0.50,
-                          child: Image.network(user.flagUrl, fit: BoxFit.cover),
+                          child: Image.network(country.flagUrl, fit: BoxFit.cover),
                         ),*/
                       ),
                     ),
@@ -64,7 +64,7 @@ class UserDetailsPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(7.0),
                   child: Text(
-                    user.title,
+                    country.title,
                     style: TextStyle(
                       fontSize: Utils.getDeviceType() == 'phone' ? 23.0 : 25.0,
                       fontWeight: FontWeight.w700,
@@ -84,11 +84,11 @@ class UserDetailsPage extends StatelessWidget {
                         child: Container(
                           constraints: BoxConstraints(minHeight: 25, minWidth: 45, maxHeight: 35, maxWidth: 55),
                           decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(9))),
-                          color: user.warning == true ? Colors.orange : Colors.lightGreen,
+                          color: country.warning == true ? Colors.orange : Colors.lightGreen,
                           child: Tooltip(
                             message: "Warnung",
                             child: Icon(
-                              user.warning == true ? Icons.warning : Icons.remove,
+                              country.warning == true ? Icons.warning : Icons.remove,
                               color: Colors.black,
                             ),
                           ),
@@ -99,11 +99,11 @@ class UserDetailsPage extends StatelessWidget {
                         child: Container(
                           constraints: BoxConstraints(minHeight: 25, minWidth: 45, maxHeight: 35, maxWidth: 55),
                           decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(9))),
-                          color: user.partialWarning == true ? Colors.orange : Colors.lightGreen,
+                          color: country.partialWarning == true ? Colors.orange : Colors.lightGreen,
                           child: Tooltip(
                             message: "eingeschränkte Warnung",
                             child: Icon(
-                              user.partialWarning == true ? Icons.warning : Icons.remove,
+                              country.partialWarning == true ? Icons.warning : Icons.remove,
                               color: Colors.black,
                             ),
                           ),
@@ -114,11 +114,11 @@ class UserDetailsPage extends StatelessWidget {
                         child: Container(
                           constraints: BoxConstraints(minHeight: 25, minWidth: 45, maxHeight: 35, maxWidth: 55),
                           decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(9))),
-                          color: user.situationWarning == true ? Colors.orange : Colors.lightGreen,
+                          color: country.situationWarning == true ? Colors.orange : Colors.lightGreen,
                           child: Tooltip(
                             message: "situationsbedingte Warnung",
                             child: Icon(
-                              user.situationWarning == true ? Icons.warning : Icons.remove,
+                              country.situationWarning == true ? Icons.warning : Icons.remove,
                               color: Colors.black,
                             ),
                           ),
@@ -129,11 +129,11 @@ class UserDetailsPage extends StatelessWidget {
                         child: Container(
                           constraints: BoxConstraints(minHeight: 25, minWidth: 45, maxHeight: 35, maxWidth: 55),
                           decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(9))),
-                          color: user.situationPartWarning == true ? Colors.orange : Colors.lightGreen,
+                          color: country.situationPartWarning == true ? Colors.orange : Colors.lightGreen,
                           child: Tooltip(
                             message: "eingeschränkte situationsbedingte Warnung",
                             child: Icon(
-                              user.situationPartWarning == true ? Icons.warning : Icons.remove,
+                              country.situationPartWarning == true ? Icons.warning : Icons.remove,
                               color: Colors.black,
                             ),
                           ),
@@ -157,9 +157,9 @@ class UserDetailsPage extends StatelessWidget {
                         semanticLabel: 'Letzte Änderung',
                       ),
                       Tooltip(
-                        message: "letzte Änderung: " + DateFormat('dd.MM.yyyy H:m').format(DateTime.fromMillisecondsSinceEpoch(user.lastModified * 1000)),
+                        message: "letzte Änderung: " + DateFormat('dd.MM.yyyy H:m').format(DateTime.fromMillisecondsSinceEpoch(country.lastModified * 1000)),
                         child: Text(
-                          " " + timeago.format(DateTime.fromMillisecondsSinceEpoch(user.lastModified * 1000), locale: 'de'), // source: https://stackoverflow.com/a/50632411 - users: Mahesh Jamdade & Alex Haslam - License: CC BY-SA 4.0
+                          " " + timeago.format(DateTime.fromMillisecondsSinceEpoch(country.lastModified * 1000), locale: 'de'), // source: https://stackoverflow.com/a/50632411 - users: Mahesh Jamdade & Alex Haslam - License: CC BY-SA 4.0
                           style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,
@@ -177,9 +177,9 @@ class UserDetailsPage extends StatelessWidget {
                         semanticLabel: 'effective',
                       ),
                       Tooltip(
-                        message: "effective -> " + DateFormat('dd.MM.yyyy H:m').format(DateTime.fromMillisecondsSinceEpoch(user.effective * 1000)),
+                        message: "effective -> " + DateFormat('dd.MM.yyyy H:m').format(DateTime.fromMillisecondsSinceEpoch(country.effective * 1000)),
                         child: Text(
-                          " " + timeago.format(DateTime.fromMillisecondsSinceEpoch(user.effective * 1000), locale: 'de'), // source: https://stackoverflow.com/a/50632411 - users: Mahesh Jamdade & Alex Haslam - License: CC BY-SA 4.0
+                          " " + timeago.format(DateTime.fromMillisecondsSinceEpoch(country.effective * 1000), locale: 'de'), // source: https://stackoverflow.com/a/50632411 - users: Mahesh Jamdade & Alex Haslam - License: CC BY-SA 4.0
                           style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,
@@ -196,7 +196,7 @@ class UserDetailsPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.all(10.0),
                   child: HtmlWidget(
-                    user.content,
+                    country.content,
                     onErrorBuilder: (context, element, error) => Text('$element error: $error'),
                     onLoadingBuilder: (context, element, loadingProgress) => CircularProgressIndicator(),
                     webView: false,
