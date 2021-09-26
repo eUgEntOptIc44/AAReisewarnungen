@@ -72,12 +72,13 @@ class HealthcareDetailsPage extends StatelessWidget {
               SizedBox(
                 height: 20.0,
               ),
-              SelectableText.rich(
-                TextSpan(
-                  text: 'Download:\n ', // default text style
-                  children: <TextSpan>[
-                    TextSpan(text: healthcare.url, style: TextStyle(fontStyle: FontStyle.italic)),
-                  ],
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: HtmlWidget(
+                  'Download:\n <a href="'+healthcare.url+'">'+healthcare.url+'</a> <br><br>Anzeige von PDF-Dokumenten innerhalb der App ist leider (noch) <b>nicht</b> möglich. ',
+                  onErrorBuilder: (context, element, error) => Text('$element error: $error'),
+                  onLoadingBuilder: (context, element, loadingProgress) => CircularProgressIndicator(),
+                  webView: false,
                 ),
               ),
               SizedBox(
