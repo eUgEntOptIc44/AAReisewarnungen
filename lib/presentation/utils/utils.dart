@@ -8,4 +8,4 @@ class Utils {
   }
 }
 
-// Utils.getDeviceType() == 'phone' ? 1 : 2,
+// HOWTO: use -> Utils.getDeviceType() == 'phone' ? valueTrue : valueFalse
